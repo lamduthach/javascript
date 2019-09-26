@@ -60,8 +60,45 @@ Lets jumb to Moment.js
 
 ## MomentJS way
 - Syntax:<br>
+```javascript
 // default
 moment("String define", "String date format")
 // wap Date
 var date = new Date();
 var m = moment(date);
+```
+
+- Example:<br>
+```javascript
+moment("20191002", "YYYYMMDD").toDate(); // Wed Oct 02 2019 00:00:00 GMT+0900 (Japan Standard Time)
+moment("10-02-2019", "MM-DD-YYYY").toDate(); // Wed Oct 02 2019 00:00:00 GMT+0900 (Japan Standard Time)
+moment("10-02-2019", "DD-MM-YYYY").toDate(); // Sun Feb 10 2019 00:00:00 GMT+0900 (Japan Standard Time)
+```
+- Date Validation : <br>
+```javascript
+var a = moment("2019-19-22T00:00:00");
+a.isValid(); // false
+a.invalidAt(); // 1 - check is date valid or not
+// The return value has the following meaning:
+// 0 : years | 1 : months | 2 : days | 3 : hours | 4 : minutes | 5 : seconds | 6 : milliseconds
+```
+
+- Difference
+```javascript
+var a = moment();
+a.format("YYYYMMDD"); // "20190926"
+var b = moment("20191002", "YYYYMMDD");
+b.diff(a); // 458881935
+b.diff(a, 'days'); // 5
+b.diff(a, 'years'); // 0
+b.diff(a, 'years', true); // 0.015877413953400126
+b.diff(a, 'months'); // 0
+b.diff(a, 'months', true); // 0.1905289674408015
+```
+- Parse
+```javascript
+moment().toDate(); // Thu Sep 26 2019 16:36:19 GMT+0900 (Japan Standard Time)
+moment().toString(); // "Thu Sep 26 2019 16:37:19 GMT+0900"
+moment().toArray(); // [2019, 8, 26, 16, 36, 44, 976]
+moment().toObject(); // { years:2019, months:8, date:26, hours:16, minutes:40, seconds:52, milliseconds:758 }
+```
