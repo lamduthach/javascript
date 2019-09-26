@@ -59,6 +59,18 @@ Omg that almost we could do with Date
 Lets jumb to Moment.js
 
 ## MomentJS way
+| Key |	Shorthand |
+| - | - |
+| years |	y |
+| quarters | Q |
+| months |	M |
+| weeks |	w |
+| days |	d |
+| hours |	h |
+| minutes |	m |
+| seconds |	s |
+| milliseconds |	ms |
+
 - Syntax:<br>
 ```javascript
 // default
@@ -102,3 +114,34 @@ moment().toString(); // "Thu Sep 26 2019 16:37:19 GMT+0900"
 moment().toArray(); // [2019, 8, 26, 16, 36, 44, 976]
 moment().toObject(); // { years:2019, months:8, date:26, hours:16, minutes:40, seconds:52, milliseconds:758 }
 ```
+- Compare & Calculate
+```javascript
+// Is Before
+moment().isBefore('2019-10-02'); // true
+var m = moment('2019-10-02');
+moment().isBefore(m); // true
+
+// Is After
+moment().isAfter('2019-10-02'); // false
+var m = moment('2019-10-02');
+moment().isAfter(m); // false
+
+// Is Same
+moment('2019-10-02').isSame('2019-10-02'); // true
+var m = moment('2019-10-02');
+moment().isSame(m); // false
+
+// Is Between
+moment().isBetween('2019-09-02', '2019-10-02'); // true
+var mFrom = moment('2019-09-02');
+var mTo = moment('2019-10-02');
+moment().isBetween(mFrom, mTo); // true
+
+// Add
+moment().add(7, 'days').format("YYYY-MM-DD"); // "2019-10-03"
+
+// Subtract 
+moment().subtract(7, 'days').format("YYYY-MM-DD"); // "2019-09-19"
+```
+
+
