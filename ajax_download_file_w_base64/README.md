@@ -7,7 +7,8 @@ Usually, we use Form Download HTML to create action download file and call backe
 Pros :
 - Easy to implement
 - Dont care about Encode/Decode for another types
-- Could work with Large file
+- Could work with Large file<br>
+
 Cons :
 - Cant monitor or detect result dowload file (success/error also write file in client too)
 
@@ -15,6 +16,7 @@ Cons :
 Pros :
 - Complex
 - Have to convert to another type to hanle (base64)
-- Can monitor or detect result download file
+- Can monitor or detect result download file<br>
+
 Cons :
 - Should not work with Large file
